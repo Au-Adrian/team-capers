@@ -25,15 +25,28 @@
       </br></br>
       <input type="text" id="location" placeholder="Location">
       </br></br>
-      Start Date: <input type="date" name="startDate" id="startDate" required>
+
+      <div id= "flex1">
+      <div id = "startDateTime">
+        <div id="flex2">
+      <div id="startDateBox"><p class="startDateText">Start Date: </p><input type="date" name="startDate" id="startDate" required></div>
+      <!-- </br></br> -->
+      <div id="startTimeBox"><p class="startDateText">Start Time:</p> <input type="time" id="start-time" value="00:00" required></div>
+    </div>
+    </div>
+
+      <!-- </br></br> -->
+      <div id="endDateTime">
+        <div id="flex3">
+      <div id="endDateBox"><p class="startDateText">End Date: </p><input type="date" name="endDate" id="endDate" required></div>
+      
+      <div id = "endTimeBox"><p class="startDateText">End Time:</p> <input type="time" id="end-time" value="00:00" required></div>
+    </div>
+    </div>
+  </div>
+
       </br></br>
-      Start Time: <input type="time" id="start-time" value="00:00" required>
-      </br></br>
-      End Date: <input type="date" name="endDate" id="endDate" required>
-      </br></br>
-      End Time: <input type="time" id="end-time" value="00:00" required>
-      </br></br>
-      <button class="ui button" type="submit" id="submit" onclick="submitForm()">
+      <button class="ui massive button" type="submit" id="submit" onclick="submitForm()">
         <i class=""></i>Create .ics file
       </button>
     </form>

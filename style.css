@@ -6,8 +6,53 @@
 
 .colorblocktop {
   padding-top: 25px;
+  text-align: center;
 }
 
 .ui-header {
 	text-align: center;
+}
+
+#flex1 {
+	display: flex;
+	flex-direction: row;
+}
+
+#flex2 {
+	display: flex;
+	flex-direction: column;
+}
+
+#startDateBox {
+	padding-bottom: 20px;
+}
+
+#flex3 {
+	display: flex;
+	flex-direction: column;
+}
+
+#endDateBox {
+	padding-bottom: 20px;
+}
+
+#startDateTime {
+	padding-left: 300px;
+}
+
+#endDateTime {
+	padding-left: 217px;
+}
+
+.startDateText {
+	font-weight: bold;
+	font-size: 20px;
+}
+
+h1 {
+	font-size: 40px;
+}
+
+body {
+	background-color: lightgreen;
 }
