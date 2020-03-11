@@ -208,6 +208,21 @@ function submitForm() {
   //Date and Time Validation
   const start = document.getElementById("startDate").value;
   const end = document.getElementById("endDate").value;
+
+  // check that the inputted date is a valid calendar date
+  const startDate = new Date(start);
+  const endDate = new Date(end);
+  if (!(startDate instanceof Date && !isNaN(startDate))) {
+    alert("Invalid Entry. Please check the start date.");
+    console.assert(false, 'The start date is invalid.');
+    return;
+  }
+  if (!(endDate instanceof Date && !isNaN(endDate))) {
+    alert("Invalid Entry. Please check the end date.");
+    console.assert(false, 'The end date is invalid.');
+    return;
+  }
+
   if( end > start ) {
     createFile();
     return;
@@ -220,7 +235,7 @@ function submitForm() {
       return;
     }
     else {
-      alert("Invalid Entry.End Time is before Start Time");
+      alert("Invalid Entry. End Time is before Start Time");
       console.assert((end == start) && (endTime < startTime), 'Invalid alert');
       return;
     }
