@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Team Capers Event Planner</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <script xmlns="http://www.w3.org/1999/xhtml" async=""
+          src="https://cdn.rawgit.com/eligrey/FileSaver.js/5ed507ef8aa53d8ecfea96d96bc7214cd2476fd2/FileSaver.min.js"></script>
+  <script src="myScripts.js"></script>
+</head>
+
+<body>
+<div class="green-background">
+  <div class="ui container">
+    <h1 class="ui header">Team Capers Event Planner</h1>
+  </div>
+  <div class="ui container colorblocktop">
+    <form onsubmit="return false">
+      <input type="text" id="title" placeholder="Title" required>
+      </br></br>
+      <input type="text" id="location" placeholder="Location">
+      </br></br>
+      Start Date: <input type="date" name="startDate" id="startDate" required>
+      </br></br>
+      Start Time: <input type="time" id="start-time" value="00:00" required>
+      </br></br>
+      End Date: <input type="date" name="endDate" id="endDate" required>
+      </br></br>
+      End Time: <input type="time" id="end-time" value="00:00" required>
+      </br></br>
+      <button class="ui button" type="submit" id="submit" onclick="submitForm()">
+        <i class=""></i>Create .ics file
+      </button>
+    </form>
+  </div>
+</div>
+</body>
+
+</html>

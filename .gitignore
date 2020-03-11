@@ -1,0 +1,7 @@
+
+.DS_Store
+.idea
+.idea/workspace.xml
+*.xml
+.meteor
+node_modules/
