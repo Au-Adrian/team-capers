@@ -1,9 +1,13 @@
 .green-background {
-  background-color: lightblue;
+  background-color: lightgreen;
   padding-top: 25px;
   padding-bottom: 25px;
 }
 
 .colorblocktop {
   padding-top: 25px;
+}
+
+.ui-header {
+	text-align: center;
 }
