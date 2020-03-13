@@ -1,0 +1,26 @@
+TITLE FIELD - 
+input : Text title you would like your event to have
+output : (input).ics file with your input as the title
+
+LOCATION FIELD - 
+input : Text field to write where your event will be taking place
+output: Your .ics file will have be an event taking place in your (input) location
+
+START DATE FIELD - 
+input : Choose the date structured MM/DD/YYYY that your event will take place
+output: Your .ics file will take place during your chosen (input)
+
+START TIME FIELD -
+input : Choose the time 12-hour form plus am/pm that your event will begin
+output : Your .ics file will have a start time of your (input)
+
+END DATE FIELD - 
+input : Choose the date structured MM/DD/YYYY that your event will end on
+output: Your .ics file will end during your chosen (input)
+
+END TIME FIELD -
+input : Choose the time 12-hour form plus am/pm that your event will finish
+output : Your .ics file will have a finish time of your (input)
+
+CREATE .ICS FILE FIELD - 
+Clicking this field creates your .ics field according to the fields chosen above and automatically moves to your downloads folder. The new .ics file will be ready for import in a calendaring system such as Google calendar or Apple calendar
