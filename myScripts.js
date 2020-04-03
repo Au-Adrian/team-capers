@@ -183,6 +183,13 @@ function createVevent() {
   event = event.concat(`SUMMARY:${document.getElementById('title').value}\r\n`);
   event = event.concat(`TZID:${createTZid(date)}\r\n`);
   event = event.concat(`DTSTART:${createDT(document.getElementById('startDate').value, document.getElementById('start-time').value)}\r\n`);
+  if (document.getElementById('repeat').value != 'NONE') {
+    event = event.concat(`RRULE:FREQ=${document.getElementById('repeat').value}`);
+    if(document.getElementById('numRepeats').value) {
+      event = event.concat(`;COUNT=${document.getElementById('numRepeats').value}`);
+    }
+    event = event.concat(`\r\n`);
+  }
   event = event.concat(`DTEND:${createDT(document.getElementById('endDate').value, document.getElementById('end-time').value)}\r\n`);
   event = event.concat(`PRIORITY:${document.getElementById('priority').value}\r\n`);
   event = event.concat(`CLASSIFICATION:${document.getElementById('classification').value}\r\n`);
@@ -213,7 +220,14 @@ function submitForm() {
     console.assert(false, 'No title');
     return;
   }
-
+  if (document.getElementById('repeat').value != 'NONE') {
+    if ((isNaN(document.getElementById('numRepeats').value) || document.getElementById('numRepeats').value < 0) && document.getElementById('numRepeats').value) {
+      alert("Invalid number of reccurrences");
+      console.assert(isNaN(document.getElementById('numRepeats').value), 'Invalid recurrence');
+      return;
+    }
+  }
+  console.log(document.getElementById('numRepeats').value);
   //Date and Time Validation
   const start = document.getElementById("startDate").value;
   const end = document.getElementById("endDate").value;
