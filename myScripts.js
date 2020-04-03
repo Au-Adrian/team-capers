@@ -209,9 +209,12 @@ function submitForm() {
   const start = document.getElementById("startDate").value;
   const end = document.getElementById("endDate").value;
 
+ 
+
   // check that the inputted date is a valid calendar date
   const startDate = new Date(start);
   const endDate = new Date(end);
+
   if (!(startDate instanceof Date && !isNaN(startDate))) {
     alert("Invalid Entry. Please check the start date.");
     console.assert(false, 'The start date is invalid.');
@@ -221,6 +224,17 @@ function submitForm() {
     alert("Invalid Entry. Please check the end date.");
     console.assert(false, 'The end date is invalid.');
     return;
+  }
+
+  function isDateBeforeToday(date) {
+    return new Date(date.toDateString()) < new Date(new Date().toDateString());
+	}
+
+  // Ensure the start date cannot be earlier than the current date
+  if (isDateBeforeToday(startDate)) {
+  	alert("Invalid Entry. The start date cannot be earlier than the current date.");
+  	console.assert(false, 'The start date is invalid.');
+  	return;
   }
 
   if( end > start ) {
