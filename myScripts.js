@@ -184,6 +184,7 @@ function createVevent() {
   event = event.concat(`TZID:${createTZid(date)}\r\n`);
   event = event.concat(`DTSTART:${createDT(document.getElementById('startDate').value, document.getElementById('start-time').value)}\r\n`);
   event = event.concat(`DTEND:${createDT(document.getElementById('endDate').value, document.getElementById('end-time').value)}\r\n`);
+  event = event.concat(`PRIORITY:${document.getElementById('priority').value}\r\n`);
 
   return `BEGIN:VEVENT\r\n${event}END:VEVENT\r\n`;
 }
@@ -245,4 +246,6 @@ function submitForm() {
     console.assert(end < start, 'Invalid Time/Date');
     return;
   }
+  const testPriority = document.getElementById('priority').value;
+  console.assert(testPriority >= 0 && testPriority <= 9, `Invalid priority, ${testPriority}`)
 }
