@@ -192,23 +192,15 @@ function createVevent() {
   }
   event = event.concat(`DTEND:${createDT(document.getElementById('endDate').value, document.getElementById('end-time').value)}\r\n`);
   event = event.concat(`PRIORITY:${document.getElementById('priority').value}\r\n`);
-  event = event.concat(`CLASSIFICATION:${document.getElementById('classification').value}\r\n`);
 
   return `BEGIN:VEVENT\r\n${event}END:VEVENT\r\n`;
 }
 
 //.ics file creator
 function createFile() {
-  version = document.getElementById('version').value;
-  const data = `BEGIN:VCALENDAR\r\nVERSION:${version}\r\nCALSCALE:GREGORIAN\r\n${createVevent()}END:VCALENDAR`;
-  if(version == '1.0') {
-    const file = new Blob([data], { type: 'text/plain;charset=utf-8' });
-    saveAs(file, `${document.getElementById('summary').value}.vcs`);
-  }
-  else {
-    const file = new Blob([data], { type: 'text/plain;charset=utf-8' });
-    saveAs(file, `${document.getElementById('summary').value}.ics`);
-  }
+  const data = `BEGIN:VCALENDAR\r\nVERSION:2.0\r\nCALSCALE:GREGORIAN\r\n${createVevent()}END:VCALENDAR`;
+  const file = new Blob([data], { type: 'text/plain;charset=utf-8' });
+  saveAs(file, `${document.getElementById('title').value}.ics`);
 }
 
 //Validation
@@ -246,9 +238,6 @@ function submitForm() {
   const endDate = new Date(end);
 
 
-  console.log(start);
-  console.log(today);
-
 
   if (!(startDate instanceof Date && !isNaN(startDate))) {
     alert("Invalid Entry. Please check the start date.");
@@ -261,11 +250,22 @@ function submitForm() {
     return;
   }
 
+var todays = new Date();
+var currentTime = todays.getHours() + ":" + todays.getMinutes();
+const startingTime = document.getElementById("start-time").value;
+const endingTime = document.getElementById("end-time").value;
+
 
   //Ensure the start date cannot be earlier than the current date
   if (start < today) {
-  	alert("Invalid Entry. The start date must be later than the current date.");
+  	alert("Invalid Entry. The start date must not be prior to the current date.");
   	console.assert(false, 'The start date is invalid.');
+  	return;
+  }
+
+  if (start == today && startingTime < currentTime) {
+  	alert("Invalid Entry. The start time must not be prior to the current time today.");
+  	console.assert(false, 'The start time is invalid.');
   	return;
   }
 
@@ -293,6 +293,4 @@ function submitForm() {
   }
   const testPriority = document.getElementById('priority').value;
   console.assert(testPriority >= 0 && testPriority <= 9, `Invalid priority, ${testPriority}`)
-  const testClass = document.getElementById('classification').value;
-  console.assert(testClass === 'PUBLIC' || testClass === 'PRIVATE', `Invalid priority, ${testClass}`);
 }
