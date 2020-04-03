@@ -208,7 +208,14 @@ function submitForm() {
   //Date and Time Validation
   const start = document.getElementById("startDate").value;
   const end = document.getElementById("endDate").value;
-  const today = new Date().toISOString().slice(0,10); 
+ 
+
+ var today = new Date();
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+  var yyyy = today.getFullYear();
+
+  today = yyyy + '-' + mm + '-' + dd;
   
 
   // check that the inputted date is a valid calendar date
@@ -216,8 +223,8 @@ function submitForm() {
   const endDate = new Date(end);
 
 
-  console.log(today);
   console.log(start);
+  console.log(today);
 
 
   if (!(startDate instanceof Date && !isNaN(startDate))) {
@@ -232,12 +239,12 @@ function submitForm() {
   }
 
 
-  // Ensure the start date cannot be earlier than the current date
-  // if (start < today) {
-  // 	alert("Invalid Entry. The start date must be later than the current date.");
-  // 	console.assert(false, 'The start date is invalid.');
-  // 	return;
-  // }
+  //Ensure the start date cannot be earlier than the current date
+  if (start < today) {
+  	alert("Invalid Entry. The start date must be later than the current date.");
+  	console.assert(false, 'The start date is invalid.');
+  	return;
+  }
 
   if( end > start ) {
     createFile();
