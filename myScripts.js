@@ -214,7 +214,7 @@ function submitForm() {
   }
   if (document.getElementById('repeat').value != 'NONE') {
     if ((isNaN(document.getElementById('numRepeats').value) || document.getElementById('numRepeats').value < 0) && document.getElementById('numRepeats').value) {
-      alert("Invalid number of reccurrences");
+      alert("Invalid number of recurrences");
       console.assert(isNaN(document.getElementById('numRepeats').value), 'Invalid recurrence');
       return;
     }
@@ -223,7 +223,7 @@ function submitForm() {
   //Date and Time Validation
   const start = document.getElementById("startDate").value;
   const end = document.getElementById("endDate").value;
- 
+
 
  var today = new Date();
   var dd = String(today.getDate()).padStart(2, '0');
@@ -231,7 +231,7 @@ function submitForm() {
   var yyyy = today.getFullYear();
 
   today = yyyy + '-' + mm + '-' + dd;
-  
+
 
   // check that the inputted date is a valid calendar date
   const startDate = new Date(start);
