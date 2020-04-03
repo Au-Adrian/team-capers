@@ -209,10 +209,18 @@ function submitForm() {
   //Date and Time Validation
   const start = document.getElementById("startDate").value;
   const end = document.getElementById("endDate").value;
+  const today = new Date().toISOString().slice(0,10); 
+  
 
   // check that the inputted date is a valid calendar date
   const startDate = new Date(start);
   const endDate = new Date(end);
+
+
+  console.log(today);
+  console.log(start);
+
+
   if (!(startDate instanceof Date && !isNaN(startDate))) {
     alert("Invalid Entry. Please check the start date.");
     console.assert(false, 'The start date is invalid.');
@@ -223,6 +231,14 @@ function submitForm() {
     console.assert(false, 'The end date is invalid.');
     return;
   }
+
+
+  // Ensure the start date cannot be earlier than the current date
+  // if (start < today) {
+  // 	alert("Invalid Entry. The start date must be later than the current date.");
+  // 	console.assert(false, 'The start date is invalid.');
+  // 	return;
+  // }
 
   if( end > start ) {
     createFile();
