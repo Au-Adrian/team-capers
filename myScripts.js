@@ -180,6 +180,7 @@ function createVevent() {
   let event = `DTSTAMP:${dtStamp}\r\n`;
   event = event.concat(`UID:${dtStamp}-${document.getElementById('start-time').value.substring(3, 5)}@example.com\r\n`);
   event = event.concat(`LOCATION:${document.getElementById('location').value}\r\n`);
+  event = event.concat(`CLASS:${document.getElementById('classification').value}\r\n`);
   event = event.concat(`SUMMARY:${document.getElementById('title').value}\r\n`);
   event = event.concat(`TZID:${createTZid(date)}\r\n`);
   event = event.concat(`DTSTART:${createDT(document.getElementById('startDate').value, document.getElementById('start-time').value)}\r\n`);
