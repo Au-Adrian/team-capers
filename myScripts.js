@@ -192,9 +192,16 @@ function createVevent() {
 
 //.ics file creator
 function createFile() {
-  const data = `BEGIN:VCALENDAR\r\nVERSION:2.0\r\nCALSCALE:GREGORIAN\r\n${createVevent()}END:VCALENDAR`;
-  const file = new Blob([data], { type: 'text/plain;charset=utf-8' });
-  saveAs(file, `${document.getElementById('title').value}.ics`);
+  version = document.getElementById('version').value;
+  const data = `BEGIN:VCALENDAR\r\nVERSION:${version}\r\nCALSCALE:GREGORIAN\r\n${createVevent()}END:VCALENDAR`;
+  if(version == '1.0') {
+    const file = new Blob([data], { type: 'text/plain;charset=utf-8' });
+    saveAs(file, `${document.getElementById('summary').value}.vcs`);
+  }
+  else {
+    const file = new Blob([data], { type: 'text/plain;charset=utf-8' });
+    saveAs(file, `${document.getElementById('summary').value}.ics`);
+  }
 }
 
 //Validation
