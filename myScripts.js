@@ -270,6 +270,13 @@ const endingTime = document.getElementById("end-time").value;
   	return;
   }
 
+  if (start == today && startingTime == endingTime) {
+  	alert("Invalid Entry. The start time and end time cannot be the same.");
+  	console.assert(false, 'The start time or end time is invalid.');
+  	return;
+  }
+
+
   if( end > start ) {
     createFile();
     return;
