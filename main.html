@@ -21,33 +21,57 @@
   </div>
   <div class="ui container colorblocktop">
     <form onsubmit="return false">
-      <input type="text" id="title" placeholder="Title" required>
+      <div class="ui small input">
+        <input type="text" id="title" placeholder="Title" required>
+      </div>
       </br></br>
-      <input type="text" id="location" placeholder="Location">
+      <div class="ui small input">
+        <input type="text" id="location" placeholder="Location">
+      </div>
       </br></br>
 
-      <div id= "flex1">
-      <div id = "startDateTime">
-        <div id="flex2">
-      <div id="startDateBox"><p class="startDateText">Start Date: </p><input type="date" name="startDate" id="startDate" required></div>
-      <!-- </br></br> -->
-      <div id="startTimeBox"><p class="startDateText">Start Time:</p> <input type="time" id="start-time" value="00:00" required></div>
-    </div>
-    </div>
+      <div id="flex1">
+        <div id="startDateTime">
+          <div id="flex2">
+            <div id="startDateBox">
+              <p class="startDateText">Start Date: </p>
+              <div class="ui small input">
+                <input type="date" name="startDate" id="startDate" required>
+              </div>
+            </div>
+            <!-- </br></br> -->
+            <div id="startTimeBox">
+              <p class="startDateText">Start Time:</p>
+              <div class="ui small input">
+                <input type="time" id="start-time" value="00:00" required>
+              </div>
+            </div>
+          </div>
+        </div>
 
-      <!-- </br></br> -->
-      <div id="endDateTime">
-        <div id="flex3">
-      <div id="endDateBox"><p class="startDateText">End Date: </p><input type="date" name="endDate" id="endDate" required></div>
-      
-      <div id = "endTimeBox"><p class="startDateText">End Time:</p> <input type="time" id="end-time" value="00:00" required></div>
-    </div>
-    </div>
-  </div>
+        <!-- </br></br> -->
+        <div id="endDateTime">
+          <div id="flex3">
+            <div id="endDateBox">
+              <p class="startDateText">End Date: </p>
+              <div class="ui small input">
+                <input type="date" name="endDate" id="endDate" required>
+              </div>
+            </div>
+
+            <div id="endTimeBox">
+              <p class="startDateText">End Time:</p>
+              <div class="ui small input">
+                <input type="time" id="end-time" value="00:00" required>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       </br></br>
       Priority:
-      <select id="priority">
+      <select class="ui dropdown" id="priority">
         <option value="0">None</option>
         <option value="9">Low</option>
         <option value="5">Medium</option>
@@ -56,21 +80,21 @@
 
       </br></br>
       Classification:
-      <select id="classification">
+      <select class="ui dropdown" id="classification">
         <option value="PUBLIC">Public</option>
         <option value="PRIVATE">Private</option>
       </select>
 
       </br></br>
       Version:
-      <select id="version" required>
+      <select class="ui dropdown" id="version" required>
         <option value="2.0">iCalendar</option>
         <option value="1.0">vCalendar</option>
       </select>
 
       </br></br>
       Repeat:
-      <select id="repeat">
+      <select class="ui dropdown" id="repeat">
         <option value="NONE">None</option>
         <option value="HOURLY">Every Hour</option>
         <option value="DAILY">Every Day</option>
@@ -80,7 +104,9 @@
       </select>
       &nbsp;&nbsp;&nbsp;
       Number of repeats:
-      <input type="number" id="numRepeats" min="1" placeholder="Enter Number Here">
+      <div class="ui small input">
+        <input type="number" id="numRepeats" min="1" placeholder="Enter Number Here">
+      </div>
 
       </br></br>
       <button class="ui massive button" type="submit" id="submit" onclick="submitForm()">
