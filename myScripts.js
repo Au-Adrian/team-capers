@@ -219,16 +219,15 @@ function submitForm() {
   today = yyyy + '-' + mm + '-' + dd;
   
 
-  var todays = new Date();
-  var currentTime = todays.getHours() + ":" + todays.getMinutes();
-  
+  // check that the inputted date is a valid calendar date
   const startDate = new Date(start);
   const endDate = new Date(end);
 
 
+  console.log(start);
+  console.log(today);
 
 
-  // check that the inputted date is a valid calendar date
   if (!(startDate instanceof Date && !isNaN(startDate))) {
     alert("Invalid Entry. Please check the start date.");
     console.assert(false, 'The start date is invalid.');
@@ -241,19 +240,10 @@ function submitForm() {
   }
 
 
-
-const startingTime = document.getElementById("start-time").value;
-    const endingTime = document.getElementById("end-time").value;
-
-    console.log(startingTime);
-    console.log(endingTime);
-    console.log(currentTime);
-
-
-  //Ensure the start date and time cannot be earlier than the current date and time
-  if (start < today || startingTime < currentTime) {
-  	alert("Invalid Entry. The start date and time must not take place before the current date and time.");
-  	console.assert(false, 'The start date or start time is invalid.');
+  //Ensure the start date cannot be earlier than the current date
+  if (start < today) {
+  	alert("Invalid Entry. The start date must be later than the current date.");
+  	console.assert(false, 'The start date is invalid.');
   	return;
   }
 
@@ -261,7 +251,6 @@ const startingTime = document.getElementById("start-time").value;
     createFile();
     return;
   }
-
   else if( end == start ) {
     const startTime = document.getElementById("start-time").value;
     const endTime = document.getElementById("end-time").value;
