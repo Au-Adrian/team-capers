@@ -224,9 +224,6 @@ function submitForm() {
   const endDate = new Date(end);
 
 
-  console.log(start);
-  console.log(today);
-
 
   if (!(startDate instanceof Date && !isNaN(startDate))) {
     alert("Invalid Entry. Please check the start date.");
@@ -239,11 +236,22 @@ function submitForm() {
     return;
   }
 
+var todays = new Date();
+var currentTime = todays.getHours() + ":" + todays.getMinutes();
+const startingTime = document.getElementById("start-time").value;
+const endingTime = document.getElementById("end-time").value;
+
 
   //Ensure the start date cannot be earlier than the current date
   if (start < today) {
-  	alert("Invalid Entry. The start date must be later than the current date.");
+  	alert("Invalid Entry. The start date must not be prior to the current date.");
   	console.assert(false, 'The start date is invalid.');
+  	return;
+  }
+
+  if (start == today && startingTime < currentTime) {
+  	alert("Invalid Entry. The start time must not be prior to the current time today.");
+  	console.assert(false, 'The start time is invalid.');
   	return;
   }
 
