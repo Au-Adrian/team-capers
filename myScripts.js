@@ -259,11 +259,10 @@ const startingTime = document.getElementById("start-time").value;
 
 
   //Ensure the start date and time cannot be earlier than the current date and time
-  if (start < today ) {
+  if (start < today || startingTime < currentTime) {
   	alert("Invalid Entry. The start date and time must not take place before the current date and time.");
   	console.assert(false, 'The start date or start time is invalid.');
   	return;
-    
   }
 
   if( end > start ) {
