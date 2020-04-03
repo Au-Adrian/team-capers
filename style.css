@@ -37,13 +37,12 @@
 }
 
 #startDateTime {
-	margin: 0 auto;
-	padding-left: 60px;
+	padding-left: 33%;
 }
 
 #endDateTime {
-	margin: 0 auto;
-	padding-right: 60px;
+	padding-right: 30%;
+	padding-left:30px;
 }
 
 .startDateText {
