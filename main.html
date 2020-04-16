@@ -16,104 +16,105 @@
 
 <body>
 <div class="green-background">
-  <div class="ui container">
-    <h1 class="ui-header">Team Capers Event Planner</h1>
-  </div>
-  <div class="ui container colorblocktop">
-    <form onsubmit="return false">
-      <div class="ui small input">
-        <input type="text" id="title" placeholder="Title" required>
-      </div>
-      </br></br>
-      <div class="ui small input">
-        <input type="text" id="location" placeholder="Location">
-      </div>
-      </br></br>
+    <div class="ui container">
+      <h1 class="ui-header">Team Capers Event Planner</h1>
+    </div>
+    <div class="ui container segment colorblocktop">
+      <form onsubmit="return false">
+        <div class="ui small input">
+          <input type="text" id="title" placeholder="Title" required>
+        </div>
+        </br></br>
+        <div class="ui small input">
+          <input type="text" id="location" placeholder="Location">
+        </div>
+        </br></br>
 
-      <div id="flex1">
-        <div id="startDateTime">
-          <div id="flex2">
-            <div id="startDateBox">
-              <p class="startDateText">Start Date: </p>
-              <div class="ui small input">
-                <input type="date" name="startDate" id="startDate" required>
+        <div id="flex1">
+          <div id="startDateTime">
+            <div id="flex2">
+              <div id="startDateBox">
+                <p class="startDateText">Start Date: </p>
+                <div class="ui small input">
+                  <input type="date" name="startDate" id="startDate" required>
+                </div>
+              </div>
+              <!-- </br></br> -->
+              <div id="startTimeBox">
+                <p class="startDateText">Start Time:</p>
+                <div class="ui small input">
+                  <input type="time" id="start-time" value="00:00" required>
+                </div>
               </div>
             </div>
-            <!-- </br></br> -->
-            <div id="startTimeBox">
-              <p class="startDateText">Start Time:</p>
-              <div class="ui small input">
-                <input type="time" id="start-time" value="00:00" required>
+          </div>
+
+          <!-- </br></br> -->
+          <div id="endDateTime">
+            <div id="flex3">
+              <div id="endDateBox">
+                <p class="startDateText">End Date: </p>
+                <div class="ui small input">
+                  <input type="date" name="endDate" id="endDate" required>
+                </div>
+              </div>
+
+              <div id="endTimeBox">
+                <p class="startDateText">End Time:</p>
+                <div class="ui small input">
+                  <input type="time" id="end-time" value="00:00" required>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- </br></br> -->
-        <div id="endDateTime">
-          <div id="flex3">
-            <div id="endDateBox">
-              <p class="startDateText">End Date: </p>
-              <div class="ui small input">
-                <input type="date" name="endDate" id="endDate" required>
-              </div>
-            </div>
+        </br></br>
+        Priority:
+        <select class="ui dropdown" id="priority">
+          <option value="0">None</option>
+          <option value="9">Low</option>
+          <option value="5">Medium</option>
+          <option value="1">High</option>
+        </select>
 
-            <div id="endTimeBox">
-              <p class="startDateText">End Time:</p>
-              <div class="ui small input">
-                <input type="time" id="end-time" value="00:00" required>
-              </div>
-            </div>
-          </div>
+        </br></br>
+        Classification:
+        <select class="ui dropdown" id="classification">
+          <option value="">Default</option>
+          <option value="PUBLIC">Public</option>
+          <option value="PRIVATE">Private</option>
+        </select>
+
+        </br></br>
+        Version:
+        <select class="ui dropdown" id="version" required>
+          <option value="2.0">iCalendar</option>
+          <option value="1.0">vCalendar</option>
+        </select>
+
+        </br></br>
+        Repeat:
+        <select class="ui dropdown" id="repeat">
+          <option value="NONE">None</option>
+          <option value="HOURLY">Every Hour</option>
+          <option value="DAILY">Every Day</option>
+          <option value="WEEKLY">Every Week</option>
+          <option value="MONTHLY">Every Month</option>
+          <option value="YEARLY">Every Year</option>
+        </select>
+        &nbsp;&nbsp;&nbsp;
+        Number of repeats:
+        <div class="ui small input">
+          <input type="number" id="numRepeats" min="1" placeholder="Enter Number Here">
         </div>
-      </div>
 
-      </br></br>
-      Priority:
-      <select class="ui dropdown" id="priority">
-        <option value="0">None</option>
-        <option value="9">Low</option>
-        <option value="5">Medium</option>
-        <option value="1">High</option>
-      </select>
-
-      </br></br>
-      Classification:
-      <select class="ui dropdown" id="classification">
-        <option value="">Default</option>
-        <option value="PUBLIC">Public</option>
-        <option value="PRIVATE">Private</option>
-      </select>
-
-      </br></br>
-      Version:
-      <select class="ui dropdown" id="version" required>
-        <option value="2.0">iCalendar</option>
-        <option value="1.0">vCalendar</option>
-      </select>
-
-      </br></br>
-      Repeat:
-      <select class="ui dropdown" id="repeat">
-        <option value="NONE">None</option>
-        <option value="HOURLY">Every Hour</option>
-        <option value="DAILY">Every Day</option>
-        <option value="WEEKLY">Every Week</option>
-        <option value="MONTHLY">Every Month</option>
-        <option value="YEARLY">Every Year</option>
-      </select>
-      &nbsp;&nbsp;&nbsp;
-      Number of repeats:
-      <div class="ui small input">
-        <input type="number" id="numRepeats" min="1" placeholder="Enter Number Here">
-      </div>
-
-      </br></br>
-      <button class="ui massive button" type="submit" id="submit" onclick="submitForm()">
-        <i class=""></i>Create .ics file
-      </button>
-    </form>
+        </br></br>
+        <button class="ui massive button" type="submit" id="submit" onclick="submitForm()">
+          <i class=""></i>Create .ics file
+        </button>
+      </form>
+    </div>
   </div>
 </div>
 </body>
