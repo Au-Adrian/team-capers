@@ -172,6 +172,10 @@ function createTZid (time){
   return timezone;
 }
 
+
+
+
+
 //Vevent Creation
 function createVevent() {
   const date = new Date();
