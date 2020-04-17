@@ -174,8 +174,6 @@ function createTZid (time){
 
 
 
-
-
 //Vevent Creation
 function createVevent() {
   const date = new Date();
@@ -274,7 +272,7 @@ const endingTime = document.getElementById("end-time").value;
   	return;
   }
 
-  if (start == today && startingTime == endingTime) {
+  if (start == end && startingTime == endingTime) {
   	alert("Invalid Entry. The start time and end time cannot be the same.");
   	console.assert(false, 'The start time or end time is invalid.');
   	return;
