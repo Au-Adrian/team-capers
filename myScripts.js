@@ -195,6 +195,8 @@ function createVevent() {
   }
   event = event.concat(`DTEND:${createDT(document.getElementById('endDate').value, document.getElementById('end-time').value)}\r\n`);
   event = event.concat(`PRIORITY:${document.getElementById('priority').value}\r\n`);
+  event = event.concat(`DESCRIPTION:${document.getElementById('description').value}\r\n`);
+  // event = event.concat(`ORGANIZER;CN=${document.getElementById('email').value}:mailto:${document.getElementById('email').value}\r\n`);
 
   return `BEGIN:VEVENT\r\n${event}END:VEVENT\r\n`;
 }

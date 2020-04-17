@@ -74,7 +74,7 @@
 
 
 
-        
+
 <div id="geolocationBox">
 <button onclick="getLocation()">Display Your Geolocation Coordinates</button>
 
@@ -87,13 +87,13 @@ var x = document.getElementById("demo");
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition);
-  } else { 
+  } else {
     x.innerHTML = "Geolocation is not supported by this browser.";
   }
 }
 
 function showPosition(position) {
-  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  x.innerHTML = "Latitude: " + position.coords.latitude +
   "<br>Longitude: " + position.coords.longitude;
 }
 </script>
@@ -140,6 +140,17 @@ function showPosition(position) {
         <div class="ui small input">
           <input type="number" id="numRepeats" min="1" placeholder="Enter Number Here">
         </div>
+
+        </br></br>
+        <label>Description:</label>
+        <br>
+        <textarea id="description" cols="50" placeholder="Event Summary"></textarea>
+
+<!--        </br></br>-->
+<!--        Your Email:-->
+<!--        <div class="ui small input">-->
+<!--          <input type="text" id="email">-->
+<!--        </div>-->
 
         </br></br>
         <button class="ui massive button" type="submit" id="submit" onclick="submitForm()">
