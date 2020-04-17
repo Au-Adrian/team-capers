@@ -28,6 +28,20 @@
 	padding-bottom: 20px;
 }
 
+input:required:after {
+  content: " *";
+  color: red;
+}
+
+input[type=text]:required::placeholder {
+  text-align: right;
+  color: red;
+}
+
+.required {
+  color: red;
+}
+
 #flex3 {
 	display: flex;
 	flex-direction: column;
