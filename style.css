@@ -39,6 +39,7 @@ input[type=text]:required::placeholder {
 }
 
 .required {
+	padding-top: 20px;
   color: red;
 }
 
