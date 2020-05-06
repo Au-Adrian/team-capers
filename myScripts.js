@@ -196,7 +196,15 @@ function createVevent() {
   event = event.concat(`DTEND:${createDT(document.getElementById('endDate').value, document.getElementById('end-time').value)}\r\n`);
   event = event.concat(`PRIORITY:${document.getElementById('priority').value}\r\n`);
   event = event.concat(`DESCRIPTION:${document.getElementById('description').value}\r\n`);
-  event = event.concat(`ORGANIZER;CN=${document.getElementById('email').value}:mailto:${document.getElementById('email').value}\r\n`);
+  if (document.getElementById('email').value) {
+    event = event.concat(`ORGANIZER;CN=${document.getElementById('email').value}:mailto:${document.getElementById('email').value}\r\n`);
+    let emails = document.getElementById('guest-emails').value.split(',');
+    emails.forEach((email) => {
+      event = event.concat(`ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;CN=${email};X-NUM-GUESTS=0:mailto:${email}\r\n`);
+    });
+    event = event.concat(`ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;CN=${document.getElementById('email').value};X-NUM-GUESTS=0:mailto:${document.getElementById('email').value}\r\n`);
+  }
+  event = event.concat(`STATUS:CONFIRMED\r\n`);
 
   return `BEGIN:VEVENT\r\n${event}END:VEVENT\r\n`;
 }
