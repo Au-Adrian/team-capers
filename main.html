@@ -75,9 +75,9 @@
 <div id="geolocationBox">
 <button onclick="getLocation()">Display Geolocation Coordinates</button>
 <p id="demo"></p>
+
 <script>
 var x = document.getElementById("demo");
-
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition);
@@ -92,7 +92,6 @@ function showPosition(position) {
 }
 </script>
 </div>
-
         </br></br>
         Priority:
         <select class="ui dropdown" id="priority">
@@ -138,7 +137,11 @@ function showPosition(position) {
         </br></br>
         <label>Resources:</label>
         <br>
-        <textarea id="resources" cols="50" placeholder="Event Resources"></textarea>
+        <form action="/action_page.php">
+          <label for="myfile">Select a file:</label>
+          <input type="file" id="myfile" name="myfile"><br><br>
+          <input type="submit">
+        </form>
 
         </br></br>
         <div style="margin: 0px 100px;">
