@@ -7,11 +7,9 @@ window.onload = function() {
   startDate.value = dt;
   endDate.value = dt;
   endDate.min = startDate.value;
-
   startDate.onchange = function() {
     endDate.min = startDate.value;
   };
-
   console.assert((endDate.value >= startDate.value), `end date: ${endDate.value}, start date: ${startDate.value}`);
 }
 
@@ -172,13 +170,10 @@ function createTZid (time){
   return timezone;
 }
 
-
-
 //Vevent Creation
 function createVevent() {
   const date = new Date();
   const dtStamp = createDTSTAMP(date);
-
   let event = `DTSTAMP:${dtStamp}\r\n`;
   event = event.concat(`UID:${dtStamp}-${document.getElementById('start-time').value.substring(3, 5)}@example.com\r\n`);
   event = event.concat(`LOCATION:${document.getElementById('location').value}\r\n`);
@@ -206,7 +201,6 @@ function createVevent() {
     event = event.concat(`ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;CN=${document.getElementById('email').value};X-NUM-GUESTS=0:mailto:${document.getElementById('email').value}\r\n`);
   }
   event = event.concat(`STATUS:CONFIRMED\r\n`);
-
   return `BEGIN:VEVENT\r\n${event}END:VEVENT\r\n`;
 }
 
@@ -237,22 +231,14 @@ function submitForm() {
   //Date and Time Validation
   const start = document.getElementById("startDate").value;
   const end = document.getElementById("endDate").value;
-
-
- var today = new Date();
+  var today = new Date();
   var dd = String(today.getDate()).padStart(2, '0');
   var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
   var yyyy = today.getFullYear();
-
   today = yyyy + '-' + mm + '-' + dd;
-
-
   // check that the inputted date is a valid calendar date
   const startDate = new Date(start);
   const endDate = new Date(end);
-
-
-
   if (!(startDate instanceof Date && !isNaN(startDate))) {
     alert("Invalid Entry. Please check the start date.");
     console.assert(false, 'The start date is invalid.');
@@ -263,33 +249,26 @@ function submitForm() {
     console.assert(false, 'The end date is invalid.');
     return;
   }
-
-var todays = new Date();
-var currentTime = todays.getHours() + ":" + todays.getMinutes();
-const startingTime = document.getElementById("start-time").value;
-const endingTime = document.getElementById("end-time").value;
-
-
+  var todays = new Date();
+  var currentTime = todays.getHours() + ":" + todays.getMinutes();
+  const startingTime = document.getElementById("start-time").value;
+  const endingTime = document.getElementById("end-time").value;
   //Ensure the start date cannot be earlier than the current date
   if (start < today) {
   	alert("Invalid Entry. The start date must not be prior to the current date.");
   	console.assert(false, 'The start date is invalid.');
   	return;
   }
-
   if (start == today && startingTime < currentTime) {
   	alert("Invalid Entry. The start time must not be prior to the current time today.");
   	console.assert(false, 'The start time is invalid.');
   	return;
   }
-
   if (start == end && startingTime == endingTime) {
   	alert("Invalid Entry. The start time and end time cannot be the same.");
   	console.assert(false, 'The start time or end time is invalid.');
   	return;
   }
-
-
   if( end > start ) {
     createFile();
     return;
