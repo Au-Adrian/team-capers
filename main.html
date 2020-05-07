@@ -72,15 +72,9 @@
           </div>
         </div>
 
-
-
-
 <div id="geolocationBox">
-<button onclick="getLocation()">Display Your Geolocation Coordinates</button>
-
-
+<button onclick="getLocation()">Display Geolocation Coordinates</button>
 <p id="demo"></p>
-
 <script>
 var x = document.getElementById("demo");
 
@@ -99,8 +93,6 @@ function showPosition(position) {
 </script>
 </div>
 
-
-
         </br></br>
         Priority:
         <select class="ui dropdown" id="priority">
@@ -110,14 +102,12 @@ function showPosition(position) {
           <option value="1">High</option>
         </select>
 
-
         Classification:
         <select class="ui dropdown" id="classification">
           <option value="">Default</option>
           <option value="PUBLIC">Public</option>
           <option value="PRIVATE">Private</option>
         </select>
-
 
         Version:
         <select class="ui dropdown" id="version" required>
@@ -135,7 +125,7 @@ function showPosition(position) {
           <option value="YEARLY">Every Year</option>
         </select>
         &nbsp;&nbsp;&nbsp;
-        Number of repeats:
+        Total Number of Events:
         <div class="ui small input">
           <input type="number" id="numRepeats" min="1" placeholder="Enter Number Here">
         </div>
@@ -168,9 +158,6 @@ function showPosition(position) {
             </div>
           </div>
         </div>
-
-
-
 
         </br></br>
         <button class="ui massive button" type="submit" id="submit" onclick="submitForm()">
